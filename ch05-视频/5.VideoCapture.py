@@ -14,11 +14,11 @@ import cv2
 cap = cv2.VideoCapture(0)  # 一般的笔 本电脑 有内置摄像头。所以参数就是 0。你可以  设置成 1 或 者其他的来 择别的摄像头
 
 '''
-你可以使用函数 cap.get(propId) 来获得  的一些参数信息。   
+你可以使用函数 cap.get(propId) 来获得  的一些参数信息。
 propId 可以是 0 到 18 之 的任何整数。
 
 其中的一些值可以使用 cap.set(propId,value) 来修改 value 就是 你想  置成的新值。
-例如 我可以使用 cap.get(3) cv2.CAP_PROP_FRAME_WIDTH和 cap.get(4) cv2.CAP_PROP_FRAME_HEIGHT来查看每一帧的宽和高。   
+例如 我可以使用 cap.get(3) cv2.CAP_PROP_FRAME_WIDTH和 cap.get(4) cv2.CAP_PROP_FRAME_HEIGHT来查看每一帧的宽和高。
 默认情况下得到的值是 640X480。但是我可以使用 ret=cap.set(3,320) 和 ret=cap.set(4,240) 来把宽和高改成 320X240。
 '''
 # ret=cap.set(3,320)
@@ -45,7 +45,9 @@ while cap.isOpened():  # 检查是否成功初始化，否则就 使用函数 ca
     # flipCode：翻转方向：1：水平翻转；0：垂直翻转；-1：水平垂直翻转
 
     # Our operations on the frame come here
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    print(cap.get(0))
+    gray = cv2.cvtColor(frame, 0)
 
     # Display the resulting frame
     cv2.imshow('frame', gray)
