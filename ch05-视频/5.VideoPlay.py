@@ -34,12 +34,14 @@ while cap.isOpened():
     FRAME_NOW = cap.get(cv2.CAP_PROP_POS_FRAMES)  # 当前帧数
     print('当前帧数', FRAME_NOW)
 
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-    cv2.imshow('frame', gray)
-    key = cv2.waitKey(1)
+    # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # cv2.imshow('frame', gray)
+    img = cv2.cvtColor(frame, 0)
+    cv2.imshow('0', img)
+    key = cv2.waitKey(25)
     if key == ord("q"):
         break
+
 
 cap.release()
 cv2.destroyAllWindows()

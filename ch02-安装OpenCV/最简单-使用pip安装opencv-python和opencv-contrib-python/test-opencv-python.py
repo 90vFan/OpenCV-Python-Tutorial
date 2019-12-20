@@ -33,7 +33,7 @@ cv2.error: /Users/travis/build/skvark/opencv-python/opencv/modules/highgui/src/w
 '''
 
 #使用matplotlib来显示
-plt.imshow(thresh,cmap='gray')
+plt.imshow(thresh, cmap='gray')
 plt.show()
 
 
