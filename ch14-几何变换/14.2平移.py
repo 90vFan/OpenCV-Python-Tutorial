@@ -15,6 +15,11 @@ import numpy as np
 cap = cv2.VideoCapture(0)
 ret = cap.set(3, 640)
 ret = cap.set(4, 480)
+
+pts1 = np.float32([[50, 50], [600, 50], [50, 400], [600, 400]])
+pts2 = np.float32([[0, 0], [640, 0], [0, 480], [640, 480]])
+M = cv2.getPerspectiveTransform(pts1, pts2)
+
 while True:
     # 获取每一帧
     ret, frame = cap.read()
@@ -29,6 +34,8 @@ while True:
     # 对原图像和掩模 进行位运算
     res = cv2.bitwise_and(frame, frame, mask=mask)
 
+    # dst = cv2.warpPerspective(frame, M, (300, 300))
+
     # 显示图像
     cv2.imshow('frame', frame)
     cv2.imshow('mask', mask)
@@ -37,5 +44,6 @@ while True:
     k = cv2.waitKey(1)  # & 0xFF
     if k == ord('q'):
         break
+
 # 关 窗口
 cv2.destroyAllWindows()

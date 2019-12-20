@@ -11,7 +11,8 @@
  OpenCV 提供了多种不同的阈值方法 ， 是由第四个参数来决定的。
   些方法包括
 • cv2.THRESH_BINARY
-• cv2.THRESH_BINARY_INV • cv2.THRESH_TRUNC
+• cv2.THRESH_BINARY_INV
+• cv2.THRESH_TRUNC
 • cv2.THRESH_TOZERO
 • cv2.THRESH_TOZERO_INV
 '''
@@ -20,7 +21,8 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-img = cv2.imread('grey-gradient.jpg', 0)
+# img = cv2.imread('grey-gradient.jpg', 0)
+img = cv2.imread('gradient.png', 0)
 
 ret, thresh1 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
 ret, thresh2 = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY_INV)

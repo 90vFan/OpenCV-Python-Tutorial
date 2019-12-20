@@ -8,7 +8,7 @@ import numpy as np
 • 从视频中获取每一帧图像
 • 将图像转换到 HSV 空间
 • 设置 HSV 阈值到蓝色范围。
-• 获取蓝色物体 当然我们 可以做其他任何我们想做的事 
+• 获取蓝色物体 当然我们 可以做其他任何我们想做的事
 比如 在蓝色 物体周围画一个圈。
 
 
@@ -22,12 +22,12 @@ ret = cap.set(3, 640)
 ret = cap.set(4, 480)
 
 # 定蓝色的阈值
-# lower = np.array([110, 50, 50])
-# upper = np.array([130, 255, 255])
+lower = np.array([110, 50, 50])
+upper = np.array([130, 255, 255])
 
 #黄色-乒乓球
-lower = np.array([20, 100, 100])
-upper = np.array([30, 255, 255])
+# lower = np.array([20, 100, 100])
+# upper = np.array([30, 255, 255])
 
 # 黑色
 # lower_black = np.array([0, 0, 0])
