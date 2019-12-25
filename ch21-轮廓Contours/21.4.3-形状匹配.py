@@ -14,18 +14,31 @@
 import cv2
 import numpy as np
 
-img1 = cv2.imread('star.jpg', 0)
-img2 = cv2.imread('star2.jpg', 0)
+img_a = cv2.imread('star_a.jpg', 0)
+img_b = cv2.imread('star_b.jpg', 0)
+img_c = cv2.imread('star_c.jpg', 0)
+img = cv2.imread('star.jpg', 0)
 
-ret, thresh = cv2.threshold(img1, 127, 255, 0)
-ret, thresh2 = cv2.threshold(img2, 127, 255, 0)
 
-image,contours, hierarchy = cv2.findContours(thresh, 2, 1)
-cnt1 = contours[0]
-image,contours, hierarchy = cv2.findContours(thresh2, 2, 1)
-cnt2 = contours[0]
+ret, thresh = cv2.threshold(img, 127, 255, 0)
+ret, thresh_a = cv2.threshold(img_a, 127, 255, 0)
+ret, thresh_b = cv2.threshold(img_b, 127, 255, 0)
+ret, thresh_c = cv2.threshold(img_c, 127, 255, 0)
 
-ret = cv2.matchShapes(cnt1, cnt2, 1, 0.0)
+contours, hierarchy = cv2.findContours(thresh_a, 2, 1)
+cnt_a = contours[0]
+contours, hierarchy = cv2.findContours(thresh_b, 2, 1)
+cnt_b = contours[0]
+contours, hierarchy = cv2.findContours(thresh_c, 2, 1)
+cnt_c = contours[0]
+
+# ret = cv2.matchShapes(cnt1, cnt2, 1, 0.0)
+# print(ret)
+ret = cv2.matchShapes(cnt_a, cnt_b, 1, 0.0)
+print(ret)
+ret = cv2.matchShapes(cnt_a, cnt_c, 1, 0.0)
+print(ret)
+ret = cv2.matchShapes(cnt_b, cnt_c, 1, 0.0)
 print(ret)
 
 #Hu 矩是归一化中心矩的线性组合

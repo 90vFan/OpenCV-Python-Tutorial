@@ -12,19 +12,19 @@ import numpy as np
 
 img=cv2.imread('../data/lightning.png',0)
 
-image, contours, hierarchy = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 cnt=contours[0]
 '''
-函数 cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺  并能纠 正缺 。一般来  凸性曲线总是凸出来的 至少是平的。如果有地方凹 去 了就 叫做凸性缺 
+函数 cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺  并能纠 正缺 。一般来  凸性曲线总是凸出来的 至少是平的。如果有地方凹 去 了就 叫做凸性缺
 例如下图中的手。红色曲线显示了手的凸包 凸性缺   双箭头标出来了。
 '''
 # convexHull(points, hull=None, clockwise=None, returnPoints=None)
-hull = cv2.convexHull(points, hull, clockwise, returnPoints)
+# hull = cv2.convexHull(points, hull, clockwise, returnPoints)
 
 '''
 points 我们 传入的 廓
-• hull  输出  通常不需要  
+• hull  输出  通常不需要
 • clockwise 方向标志。如果 置为 True  出的凸包是顺时针 方向的。 否则为逆时针 方向。
 • returnPoints   值为 True。它会 回凸包上点的坐标。如果 置 为 False 就会 回与凸包点对应的 廓上的点。
 '''

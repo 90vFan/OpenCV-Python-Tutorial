@@ -37,4 +37,3 @@ h, s, v = cv2.split(hsv)
 
 hist, xbins, ybins = np.histogram2d(h.ravel(), s.ravel(), [180, 256], [[0, 180], [0, 256]])
 
-pass
