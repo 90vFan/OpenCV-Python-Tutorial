@@ -31,7 +31,7 @@ median = cv2.medianBlur(img, 5)  # 中值模糊
 函数 cv2.bilateralFilter() 能在保持边界清晰的情况下有效的去 噪  。
 但是 种操作与其他滤波器相比会比 慢。
 我们已经知 高斯滤波器是求 中心点 邻近区域像素的高斯加权平均值。
- 种 斯滤波器只考虑像素之间的空间关系 
+ 种 斯滤波器只考虑像素之间的空间关系
  而不会考虑像素值之间的关系 ，像素的相似度 。
  所以 种方法不会考 虑 一个像素是否位于边界。
  因此边界也会被模糊掉 而 这正不是我们想要。
@@ -47,10 +47,10 @@ median = cv2.medianBlur(img, 5)  # 中值模糊
 # cv2.bilateralFilter(src, d, sigmaColor, sigmaSpace)
 # d – Diameter of each pixel neighborhood that is used during filtering. # If it is non-positive, it is computed from sigmaSpace
 # 9  域直径 两个 75 分别是空  斯函数标准差 灰度值相似性 斯函数标准差
-# blur = cv2.bilateralFilter(img, 9, 75, 75)
+bilater = cv2.bilateralFilter(img, 9, 75, 75)
 
 plt.subplot(121), plt.imshow(img), plt.title('Original')
 plt.xticks([]), plt.yticks([])
-plt.subplot(122), plt.imshow(blur), plt.title('Blurred')
+plt.subplot(122), plt.imshow(bilater), plt.title('Blurred')
 plt.xticks([]), plt.yticks([])
 plt.show()

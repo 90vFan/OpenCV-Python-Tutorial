@@ -15,12 +15,15 @@ cv2.imshow("imgray", imgray)
 # 所以读取的图像要先转成灰度的，再转成二值图
 # ret, thresh = cv2.threshold(imgray, 0, 25, 0)
 # ret, thresh = cv2.threshold(imgray, 0, 100, 0)
-ret, thresh = cv2.threshold(src=imgray, thresh=127, maxval=255, type=cv2.THRESH_BINARY)#src, thresh, maxval, type
+ret, thresh = cv2.threshold(src=imgray, thresh=127, maxval=255, type=cv2.THRESH_BINARY) # src, thresh, maxval, type
 
 cv2.imshow("thresh", thresh)
 #轮廓提取模式 Contour_Retrieval_Mode
-image, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 print("contours size: ", len(contours))
+# print(contours)
+print("hierarchy: ", hierarchy)
+
 
 img = cv2.drawContours(im, contours, -1, (0,255,0), 3)
 # img = cv2.drawContours(im, contours, 3, (255, 0, 0), 3)

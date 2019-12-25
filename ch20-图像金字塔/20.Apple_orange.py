@@ -47,6 +47,7 @@ for i in range(5, 0, -1):
     L = cv2.subtract(gpB[i - 1], GE)
     lpB.append(L)
 
+
 # Now add left and right halves of images in each level
 # numpy.hstack(tup)
 # Take a sequence of arrays and stack them horizontally

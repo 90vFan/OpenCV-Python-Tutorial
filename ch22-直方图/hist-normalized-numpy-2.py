@@ -1,4 +1,4 @@
-# -*-coding:utf8-*-#
+# -*-coding:utf-8-*-#
 __author__ = 'play4fun'
 """
 create time:15-10-24 下午5:26
@@ -9,6 +9,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 img = cv2.imread('../data/contrast75.png', 0)
+cv2.imshow("img",img)
+
 # flatten() 将数组变成一维
 hist, bins = np.histogram(img.flatten(), 256, [0, 256])
 # 计算累积分布图
@@ -21,8 +23,8 @@ cdf_m = (cdf_m - cdf_m.min()) * 255 / (cdf_m.max() - cdf_m.min())
 # 对被掩盖的元素赋值，赋值为 0
 cdf = np.ma.filled(cdf_m, 0).astype('uint8')
 img2 = cdf[img]
-# cv2.imshow("img2",img2)
-# cv2.waitKey(0)
+cv2.imshow("img2",img2)
+cv2.waitKey(0)
 
 ##
 # flatten() 将数组变成一维
