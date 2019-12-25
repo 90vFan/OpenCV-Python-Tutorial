@@ -1,4 +1,4 @@
-# -*-coding:utf8-*-#
+# -*-coding:utf-8-*-#
 __author__ = 'play4fun'
 """
 create time:15-10-24 下午5:22
@@ -6,7 +6,7 @@ create time:15-10-24 下午5:22
  统计图像某个局部区域的直方图只需要构建一副掩模图像。
  将要统计的 部分设置成白色 其余 分为黑色 就构成了一副掩模图像。
  然后把这个掩模 图像传给函数就可以了。
- 
+
 """
 import cv2
 import numpy as np

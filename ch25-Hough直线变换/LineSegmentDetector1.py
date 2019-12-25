@@ -19,7 +19,7 @@ cv2.imshow('pokerQ',img0)
 lsd = cv2.createLineSegmentDetector(0)
 
 # Detect lines in the image
-dlines = lsd.detect(img)#TODO 返回什么？
+dlines = lsd.detect(img)    # TODO 返回什么？
 lines = lsd.detect(img)[0]  # Position 0 of the returned tuple are the detected lines
 
 # Draw detected lines in the image
@@ -36,7 +36,7 @@ for dline in dlines[0]:
     cv2.imshow("LSD", img0)
     cv2.waitKey(200)
 
-#TODO 最长的直线？
+# TODO 最长的直线？
 
 # Show image
 # cv2.imshow("LSD", drawn_img)

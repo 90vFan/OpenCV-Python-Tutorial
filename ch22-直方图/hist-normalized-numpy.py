@@ -1,4 +1,4 @@
-# -*-coding:utf8-*-#
+# -*-coding:utf-8-*-#
 __author__ = 'play4fun'
 """
 create time:15-10-24 下午5:26
@@ -13,6 +13,9 @@ from matplotlib import pyplot as plt
 
 #怎样使用 Numpy 来进行直方图均衡化
 img = cv2.imread('../data/contrast75.png', 0)
+plt.imshow(img)
+plt.show()
+
 # flatten() 将数组变成一维
 hist, bins = np.histogram(img.flatten(), 256, [0, 256])
 # 计算累积分布图

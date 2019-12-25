@@ -38,6 +38,10 @@ blur = cv2.GaussianBlur(img, (5, 5), 0)
 # 阀值一定为 0
 ret3, th3 = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
+print(ret1)  # 127
+print(ret2)  # 114
+print(ret3)  # 117
+
 # plot all the images and their histograms
 images = [img, 0, th1,
           img, 0, th2,
@@ -51,11 +55,12 @@ titles = ['Original Noisy Image', 'Histogram', 'Global Thresholding (v=127)',
 # ndarray.flat 1-D iterator over an array.
 # ndarray.flatten 1-D array copy of the elements of an array in row-major order.
 
+
 for i in range(3):
     plt.subplot(3, 3, i * 3 + 1), plt.imshow(images[i * 3], 'gray')
     plt.title(titles[i * 3]), plt.xticks([]), plt.yticks([])
     plt.subplot(3, 3, i * 3 + 2), plt.hist(images[i * 3].ravel(), 256)
-    plt.title(titles[i * 3 + 1]), plt.xticks([]), plt.yticks([])
+    # plt.title(titles[i * 3 + 1]), plt.xticks([]), plt.yticks([])
     plt.subplot(3, 3, i * 3 + 3), plt.imshow(images[i * 3 + 2], 'gray')
     plt.title(titles[i * 3 + 2]), plt.xticks([]), plt.yticks([])
 plt.show()

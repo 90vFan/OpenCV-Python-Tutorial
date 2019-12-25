@@ -1,8 +1,8 @@
-# -*-coding:utf8-*-#
+# -*-coding:utf-8-*-#
 __author__ = 'play4fun'
 """
 create time:15-10-24 下午5:19
-同时绘制多通道 BGR 
+同时绘制多通道 BGR
 """
 
 import cv2
@@ -10,6 +10,9 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 img = cv2.imread('../data/home.jpg')
+cv2.imshow('img', img)
+cv2.waitKey(0)
+
 color = ('b', 'g', 'r')
 # 对一个列表或数组既要遍历索引又要遍历元素时
 # 使用内置 enumerrate 函数会有更加直接 优美的做法

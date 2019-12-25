@@ -20,7 +20,7 @@ cv2.imshow('imgray', imgray)
 ret, threshold = cv2.threshold(imgray, 244, 255, cv2.THRESH_BINARY_INV)  # 把黑白颜色反转
 cv2.imshow('after threshold', threshold)
 
-image, contours, hierarchy = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contours, hierarchy = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 areas = list()
 for i, cnt in enumerate(contours):
@@ -29,7 +29,7 @@ for i, cnt in enumerate(contours):
 #
 a2 = sorted(areas, key=lambda d: d[1], reverse=True)#按面积大小，从大到小排序
 
-cv2.waitKey(0)#要先按一下键盘
+cv2.waitKey(0) #要先按一下键盘
 for i, are in a2:
     if are < 150:
         continue
@@ -56,5 +56,9 @@ idx = a2[4][0]
 x, y, w, h = cv2.boundingRect(contours[idx])
 roi = org[y:y + h, x:x + w]
 cv2.imwrite('out_contour-roi4.jpg', roi)
+
+cv2.drawContours(org, contours, idx, (0, 0, 255), 3)
+cv2.imshow('out_contour', org)
+cv2.waitKey(0)
 
 cv2.destroyAllWindows()
